@@ -4,6 +4,8 @@
 
         body {
             overflow: hidden;
+            width: 100%
+            height: auto;
             /*height: 500px;*/
         }
 
@@ -13,6 +15,13 @@
         #background div{
             border-radius: 50%;
             position: absolute;
+        }
+
+        @media (max-width: 500px) {
+            body {
+                width: 100%;
+                height: 100%;
+            }
         }
     </style>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -52,11 +61,10 @@
 
             var one = document.createElement('div');
 
-            var ratio = window.devicePixelRation || 1;
             var radius = this._rand(this.minRadius, this.maxRadius);
             var opacity = this._rand(this.minOpacity, this.maxOpacity);
-            var startLocLeft = this._rand(0, screen.width * ratio);
-            var startLocTop = this._rand(0, screen.height * ratio);
+            var startLocLeft = this._rand(0, screen.width);
+            var startLocTop = this._rand(0, screen.height);
             var color = this._rand(0,3);
 
             document.getElementById("background").appendChild(one);
