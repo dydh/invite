@@ -1,132 +1,308 @@
 <html>
 <head>
-    <style>
-        html, body {
-            height: 100%;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            background-color: #BDC3C7;
-            font-family: 'Raleway';
-        }
-        .top {
-            background-color: #264356;
-            height: 200px;
-            margin:0;
-            padding:0;
-            box-shadow: 2px 2px 4px rgb(0, 0, 0, .25);
+    <!--<style>-->
+        <!--html, body {-->
+            <!--height: 100%;-->
+            <!--width: 100%;-->
+            <!--margin: 0;-->
+            <!--padding: 0;-->
+            <!--background-color: #BDC3C7;-->
+            <!--font-family: 'Raleway';-->
+        <!--}-->
+        <!--.top {-->
+            <!--background-color: #264356;-->
+            <!--height: 200px;-->
+            <!--margin:0;-->
+            <!--padding:0;-->
+            <!--box-shadow: 2px 2px 4px rgb(0, 0, 0, .25);-->
+        <!--}-->
+
+        <!--.form {-->
+            <!--height: 590px;-->
+            <!--width: 400px;-->
+            <!--background-color: #fff;-->
+            <!--margin: -110px auto;-->
+            <!--border-radius: 10px;-->
+            <!--color: #666;-->
+            <!--padding: 0px 0px;-->
+            <!--box-shadow: 2px 2px 4px rgb(0, 0, 0, .25);-->
+        <!--}-->
+
+        <!--.info {-->
+            <!--padding: 10px;-->
+        <!--}-->
+
+        <!--h1, h2, p {-->
+            <!--text-align: center;-->
+            <!--padding: 0px;-->
+            <!--margin: 5px 5px;-->
+        <!--}-->
+
+        <!--h2 {-->
+            <!--font-family: 'Great Vibes', cursive;-->
+            <!--font-weight: 100;-->
+        <!--}-->
+
+        <!--p.line {-->
+            <!--margin: 0px auto 20px auto;-->
+            <!--color: #999;-->
+        <!--}-->
+
+        <!--.form input {-->
+            <!--font-size: 15px;-->
+            <!--color: #666;-->
+            <!--padding: 6px;-->
+            <!--margin: 25px auto 20px;-->
+            <!--display: block;-->
+            <!--width: 75%;-->
+        <!--}-->
+
+        <!--input:focus {-->
+            <!--outline: 0;-->
+        <!--}-->
+
+        <!--.button button {-->
+            <!--display: inline-block;-->
+            <!--width: 400px;-->
+        <!--}-->
+        <!--button {-->
+            <!--color: #666;-->
+            <!--background-color: #ffbdc7;-->
+            <!--border: none;-->
+            <!--font-family: 'Raleway';-->
+            <!--font-size: 18px;-->
+            <!--font-weight: 600;-->
+            <!--padding: 15px 32px;-->
+            <!--width: 200px;-->
+            <!--margin: 20px auto 0px auto;-->
+            <!--float:left;-->
+        <!--}-->
+
+        <!--button.accept {-->
+            <!--border-radius: 0px 0px 0px 10px;-->
+            <!--border-right: solid 1px #cc919a;-->
+        <!--}-->
+
+        <!--button.regret {-->
+            <!--border-radius: 0px 0px 10px 0px;-->
+        <!--}-->
+
+        <!--button:hover {-->
+            <!--background-color: #cc919a;-->
+            <!--transition: .5s;-->
+        <!--}-->
+
+        <!--button:focus {-->
+            <!--outline: 0;-->
+        <!--}-->
+
+        <!--@media (max-width: 500px)-->
+        <!--{-->
+            <!--.info {-->
+                <!--width: 100%;-->
+            <!--}-->
+        <!--}-->
+
+    <!--</style>-->
+
+    <script>
+        /**
+         * Generates random particles using canvas
+         *
+         * @class Particles
+         * @constructor
+         */
+        function Particles(){
+            //particle colors
+            this.colors = [
+                '255, 255, 255',
+                '255, 99, 71',
+                '19, 19, 19'
+            ]
+            //adds gradient to particles on true
+            this.blurry = false;
+            //adds white border
+            this.border = false;
+            //particle radius min/max
+            this.minRadius = 10;
+            this.maxRadius = 35;
+            //particle opacity min/max
+            this.minOpacity = .005;
+            this.maxOpacity = .5;
+            //particle speed min/max
+            this.minSpeed = .05;
+            this.maxSpeed = .5;
+            //frames per second
+            this.fps = 60;
+            //number of particles
+            this.numParticles = 75;
+            //required canvas variables
+            this.canvas = document.getElementById('canvas');
+            this.ctx = this.canvas.getContext('2d');
         }
 
-        .form {
-            height: 590px;
-            width: 400px;
-            background-color: #fff;
-            margin: -110px auto;
-            border-radius: 10px;
-            color: #666;
-            padding: 0px 0px;
-            box-shadow: 2px 2px 4px rgb(0, 0, 0, .25);
+        /**
+         * Initializes everything
+         * @method init
+         */
+        Particles.prototype.init = function(){
+            this.render();
+            this.createCircle();
         }
 
-        .info {
-            padding: 10px;
+        /**
+         * generates random number between min and max values
+         * @param  {number} min value
+         * @param  {number} max malue
+         * @return {number} random number between min and max
+         * @method _rand
+         */
+        Particles.prototype._rand = function(min, max){
+            return Math.random() * (max - min) + min;
         }
 
-        h1, h2, p {
-            text-align: center;
-            padding: 0px;
-            margin: 5px 5px;
+        /**
+         * Sets canvas size and updates values on resize
+         * @method render
+         */
+        Particles.prototype.render = function(){
+            var self = this,
+                wHeight = $(window).height(),
+                wWidth = $(window).width();
+
+            self.canvas.width = wWidth;
+            self.canvas.height = wHeight;
+
+            $(window).on('resize', self.render);
         }
 
-        h2 {
-            font-family: 'Great Vibes', cursive;
-            font-weight: 100;
-        }
+        /**
+         * Randomly creates particle attributes
+         * @method createCircle
+         */
+        Particles.prototype.createCircle = function(){
+            var particle = [];
 
-        p.line {
-            margin: 0px auto 20px auto;
-            color: #999;
-        }
+            for (var i = 0; i < this.numParticles; i++) {
+                var self = this,
+                    color = self.colors[~~(self._rand(0, self.colors.length))];
 
-        .form input {
-            font-size: 15px;
-            color: #666;
-            padding: 6px;
-            margin: 25px auto 20px;
-            display: block;
-            width: 75%;
-        }
+                particle[i] = {
+                    radius: self._rand(self.minRadius, self.maxRadius),
+                    xPos: self._rand(0, canvas.width),
+                    yPos: self._rand(0,canvas.height),
+                    xVelocity: self._rand(self.minSpeed, self.maxSpeed),
+                    yVelocity: self._rand(self.minSpeed, self.maxSpeed),
+                    color: 'rgba(' + color + ',' + self._rand(self.minOpacity, self.maxOpacity) + ')'
+                }
 
-        input:focus {
-            outline: 0;
-        }
-
-        .button button {
-            display: inline-block;
-            width: 400px;
-        }
-        button {
-            color: #666;
-            background-color: #ffbdc7;
-            border: none;
-            font-family: 'Raleway';
-            font-size: 18px;
-            font-weight: 600;
-            padding: 15px 32px;
-            width: 200px;
-            margin: 20px auto 0px auto;
-            float:left;
-        }
-
-        button.accept {
-            border-radius: 0px 0px 0px 10px;
-            border-right: solid 1px #cc919a;
-        }
-
-        button.regret {
-            border-radius: 0px 0px 10px 0px;
-        }
-
-        button:hover {
-            background-color: #cc919a;
-            transition: .5s;
-        }
-
-        button:focus {
-            outline: 0;
-        }
-
-        @media (max-width: 500px)
-        {
-            .info {
-                width: 100%;
+                //once values are determined, draw particle on canvas
+                self.draw(particle, i);
             }
+            //...and once drawn, animate the particle
+            self.animate(particle);
         }
 
-    </style>
+        /**
+         * Draws particles on canvas
+         * @param  {array} Particle array from createCircle method
+         * @param  {number} i value from createCircle method
+         * @method draw
+         */
+        Particles.prototype.draw = function(particle, i){
+            var self = this,
+                ctx = self.ctx;
+
+            if (self.blurry === true ) {
+                //creates gradient if blurry === true
+                var grd = ctx.createRadialGradient(particle[i].xPos, particle[i].yPos, particle[i].radius, particle[i].xPos, particle[i].yPos, particle[i].radius/1.25);
+
+                grd.addColorStop(1.000, particle[i].color);
+                grd.addColorStop(0.000, 'rgba(34, 34, 34, 0)');
+                ctx.fillStyle = grd;
+            } else {
+                //otherwise sets to solid color w/ opacity value
+                ctx.fillStyle = particle[i].color;
+            }
+
+            if (self.border === true) {
+                ctx.strokeStyle = '#fff';
+                ctx.stroke();
+            }
+
+            ctx.beginPath();
+            ctx.arc(particle[i].xPos, particle[i].yPos, particle[i].radius, 0, 2 * Math.PI, false);
+            ctx.fill();
+        }
+
+        /**
+         * Animates particles
+         * @param  {array} particle value from createCircle & draw methods
+         * @method animate
+         */
+        Particles.prototype.animate = function(particle){
+            var self = this,
+                ctx = self.ctx;
+
+            setInterval(function(){
+                //clears canvas
+                self.clearCanvas();
+                //then redraws particles in new positions based on velocity
+                for (var i = 0; i < self.numParticles; i++) {
+                    particle[i].xPos += particle[i].xVelocity;
+                    particle[i].yPos -= particle[i].yVelocity;
+
+                    //if particle goes off screen call reset method to place it offscreen to the left/bottom
+                    if (particle[i].xPos > self.canvas.width + particle[i].radius || particle[i].yPos > self.canvas.height + particle[i].radius) {
+                        self.resetParticle(particle, i);
+                    } else {
+                        self.draw(particle, i);
+                    }
+                }
+            }, 1000/self.fps);
+        }
+
+        /**
+         * Resets position of particle when it goes off screen
+         * @param  {array} particle value from createCircle & draw methods
+         * @param  {number} i value from createCircle method
+         * @method resetParticle
+         */
+        Particles.prototype.resetParticle = function(particle, i){
+            var self = this;
+
+            var random = self._rand(0, 1);
+
+            if (random > .5) {
+                // 50% chance particle comes from left side of window...
+                particle[i].  xPos = -particle[i].radius;
+                particle[i].yPos =   self._rand(0, canvas.height);
+            } else {
+                //... or bottom of window
+                particle[i].  xPos = self._rand(0, canvas.width);
+                particle[i].yPos =   canvas.height + particle[i].radius;
+            }
+            //redraw particle with new values
+            self.draw(particle, i);
+        }
+
+        /**
+         * Clears canvas between animation frames
+         * @method clearCanvas
+         */
+        Particles.prototype.clearCanvas = function(){
+            this.ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+
+        // go go go!
+        var particle = new Particles();
+        particle.init();
+    </script>
 </head>
 <body>
-<div class="top">
-</div>
-<div class="form">
-    <div class ="info">
-        <h1>RSVP</h1>
-        <h2>for the something of</h2>
-        <h1>Someone and Someone else</h1>
-        <p class= "line">________________________________________</p>
-        <h2>The Details</h2>
-        <p>November 2, 2017</p>
-        <p>5:00 PM</p>
-        <br>
-        <h2>Ceremony & Reception</h2>
-        <p>Kings Court</p>
-        <p>Unknown</p>
-        <p class= "line">________________________________________</p>
-        <input type="text" placeholder="Name">
-        <input type="number" placeholder="# of Guests">
-    </div>
-    <button class ="accept">Accept</button>
-    <button class ="regret">Regret</button>
-</div>
+<canvas id="canvas">Some text</canvas>
+
+<h1>Some text</h1>
 </body>
 </html>
