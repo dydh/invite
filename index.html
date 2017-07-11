@@ -52,13 +52,11 @@
 
             var one = document.createElement('div');
 
+            var ratio = window.devicePixelRation || 1;
             var radius = this._rand(this.minRadius, this.maxRadius);
             var opacity = this._rand(this.minOpacity, this.maxOpacity);
-            var startLocLeft = this._rand(0, screen.width);
-            var startLocTop = this._rand(0, screen.height);
-            var endLocLeft = this._rand(0, screen.width);
-            var endLocTop = this._rand(0, screen.height);
-            var speed = this._rand(this.minSpeed, this.maxSpeed);
+            var startLocLeft = this._rand(0, screen.width * ratio);
+            var startLocTop = this._rand(0, screen.height * ratio);
             var color = this._rand(0,3);
 
             document.getElementById("background").appendChild(one);
