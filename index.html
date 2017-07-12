@@ -186,6 +186,7 @@
     function onSubmit(token) {
 
         document.getElementById("rsvp").submit();
+        alert("submitted");
 
         if (localStorage.getItem("DeepthiWeddingRSVP") == undefined) {
             localStorage.setItem("DeepthiWeddingRSVP", true);
