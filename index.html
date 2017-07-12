@@ -17,8 +17,8 @@
         }
 
         .card {
-            width: 20%;
-            height: 50%;
+            width: 400px;
+            height: 70%;
             background-color: #d6e3e8;
             z-index: 10;
             margin: 2% auto;
@@ -39,16 +39,64 @@
 
     </style>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<body>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<body onload="onLoad()">
 <div id="background">
 
 </div>
 <div class="card">
+    <script type="text/javascript">var submitted=false;</script>
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+    <form action="https://docs.google.com/forms/d/e/1FAIpQLSeDRNj1-6h6uipJ-01G9N00qbIwuaAPyWuRHA6tEVAtZT7DEw/formResponse" method="post" target="hidden_iframe"
+          id="rsvp">
+        <label for="name">Your Name</label>
+        <input name="entry.14868917" type="text" id="name" />
+        <p>Will you be attending?</p>
+        <input type="checkbox" name="entry.1396445814" id="attend1" value="Reception at Bangalore" />
+        <label for="attend1">Reception at Bangalore</label>
+        <input type="checkbox" name="entry.1396445814" id="attend2" value="Muhurtham at Bangalore" />
+        <label for="attend2">Muhurtham at Bangalore</label>
+        <input type="checkbox" name="entry.1396445814" id="attend3" value="Reception at Chennai" />
+        <label for="attend3">Reception at Chennai</label>
+        <input type="checkbox" name="entry.1396445814" id="attend4" value="Regret" />
+        <label for="attend4">Regret</label>
+        <p>How many guests?</p>
+        <select name="entry.336775142">
+            <option selected disabled>Choose</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5+">5</option>
+        </select>
+        <input name="entry.1599336520" type="hidden" id="ip" hidden/>
+        <input name="entry.1894150066" type="hidden" id="city" hidden/>
 
+        <button class="g-recaptcha" data-sitekey="6Lcb4SgUAAAAAPd4wcvPmEPij_11rcg5jILPC75A" data-callback='onSubmit'
+                type="submit" value="Submit">Submit</button>
+    </form>
 </div>
 </body>
 <script>
 
+    function onLoad() {
+        $.getJSON('//freegeoip.net/json/?callback=?', function(data) {
+            $("#ip").val(data.ip);
+            $("#city").val(data.city);
+
+        });
+    }
+
+    function onSubmit(token) {
+
+        document.getElementById("rsvp").submit();
+
+        if(localStorage.getItem("DeepthiWeddingRSVP") == undefined) {
+            localStorage.setItem("DeepthiWeddingRSVP", true);
+        }
+    }
+    
     function Particles() {
         this.colors = [
             '#ff0025',
@@ -62,8 +110,8 @@
         this.minOpacity = .09;
         this.maxOpacity = .1;
 
-        this.minSpeed = .005;
-        this.maxSpeed = .01;
+        this.minSpeed = 100000;
+        this.maxSpeed = 1000000;
 
         this.numParticles = 100;
     }
@@ -73,8 +121,6 @@
     };
 
     Particles.prototype.createParticles = function () {
-
-
 
         for(var i=0; i<this.numParticles; i++) {
 
@@ -115,27 +161,14 @@
     Particles.prototype.animateParticle = function (one) {
         var newq = this.makeNewPosition();
         var oldq = $(one).offset();
-        var speed = this.calcSpeed([oldq.top, oldq.left], newq);
+        //var speed = this.calcSpeed([oldq.top, oldq.left], newq);
+        var speed = this._rand(this.minSpeed, this.maxSpeed);
         var that = this;
 
         $(one).animate({ top: newq[0], left: newq[1] }, speed, function () {
-            that.animateParticle(one);
+            //that.animateParticle(one);
         });
     };
-
-    Particles.prototype.calcSpeed = function (prev, next) {
-        var x = Math.abs(prev[1] - next[1]);
-        var y = Math.abs(prev[0] - next[0]);
-
-        var greatest = x > y ? x : y;
-
-        var speedModifier = this._rand(this.minSpeed, this.maxSpeed);
-
-        var speed = Math.floor(greatest/speedModifier);
-
-        return speed;
-    };
-
 
     var particle = new Particles();
     particle.createParticles();
