@@ -55,7 +55,7 @@
                 margin: 0;
             }
 
-            .card, .rsvp-card {
+            .card, .rsvp-card, .both {
                 min-height: 100%;
                 min-width: 100%;
                 width: 100%;
@@ -72,20 +72,32 @@
             min-height: 100%;
             text-align: left;
             backface-visibility: hidden;
-            transform-style: preserve3d;
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
+            -webkit-transition: all 1s;
+            -moz-transition: all 1s;
             transition: all 1s;
         }
 
         .back {
             transform: rotateY(-180deg);
+            -webkit-transform: rotateY(-180deg);
+            -ms-transform: rotateY(-180deg);
+
         }
 
         .flipped .back {
             transform: rotateY(0deg);
+            -webkit-transform: rotateY(0deg);
+            -ms-transform: rotateY(0deg);
         }
 
         .flipped .front {
             transform: rotateY(180deg);
+            -webkit-transform: rotateY(180deg);
+            -ms-transform: rotateY(180deg);
         }
 
         svg {
@@ -103,6 +115,8 @@
             stroke-linejoin: round;
             animation: offset 5s linear forwards;
             transform: scale(6);
+            -webkit-transform: scale(6);
+            -ms-transform: scale(6);
         }
 
 
