@@ -10,7 +10,15 @@
     <link rel="stylesheet" href="css/normalize.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/svg-monogram.css">
+    
+    <script>
+        var g= document.querySelectorAll('.header path');
 
+        for (var i = 0; i < g.length; i++) {
+            var transform= getComputedStyle(g[i]).getPropertyValue('transform');
+            g[i].setAttribute('transform', transform);
+        }
+    </script>
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
