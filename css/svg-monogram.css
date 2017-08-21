@@ -268,3 +268,7 @@ button {
 i {
     float: right;
 }
+
+#count {
+    height: 30px;
+}
