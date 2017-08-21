@@ -65,6 +65,7 @@ $('input.check').on('change', function () {
 });
 $(".btn").click(function () {
     $(".both").toggleClass('flipped');
+    $("#name").focus();
 });
 $("#cancel").click(function () {
     $(".both").toggleClass('flipped');
