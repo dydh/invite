@@ -8,7 +8,12 @@ jQuery.extend(jQuery.easing,
 
 
 function drawSVGPaths(_parentElement, _timeMin, _timeMax, _timeDelay) {
+var g= document.querySelectorAll('.header path');
 
+    for (var i = 0; i < g.length; i++) {
+	    var transform= getComputedStyle(g[i]).getPropertyValue('transform');
+        g[i].setAttribute('transform', transform);
+    }
 
     var paths = $(_parentElement).find('path');
 
@@ -76,13 +81,6 @@ function onLoad() {
         $("#ip").val(data.ip);
         $("#city").val(data.city);
     });
-    
-    var g= document.querySelectorAll('.header path');
-
-    for (var i = 0; i < g.length; i++) {
-	    var transform= getComputedStyle(g[i]).getPropertyValue('transform');
-        g[i].setAttribute('transform', transform);
-    }
 }
 
 $("form").submit(function (event) {
