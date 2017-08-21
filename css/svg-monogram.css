@@ -65,17 +65,6 @@
 }
 
 .btn {
-    background: #D6B16C;
-    background-image: -webkit-linear-gradient(top, #D6B16C, #AD8545);
-    background-image: -moz-linear-gradient(top, #D6B16C, #AD8545);
-    background-image: -ms-linear-gradient(top, #D6B16C, #AD8545);
-    background-image: -o-linear-gradient(top, #D6B16C, #AD8545);
-    background-image: linear-gradient(to bottom, #D6B16C, #AD8545);
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    font-family: Arial;
-    color: #684207;
     font-size: 20px;
     padding: 10px 30px 10px 30px;
     text-decoration: none;
@@ -96,15 +85,7 @@
     transition-duration: 1.5s;
     transition-timing-function: ease-in-out;
 }
-.btn:hover {
-    background: #AD8545;
-    background-image: -webkit-linear-gradient(top, #AD8545, #C9B28D);
-    background-image: -moz-linear-gradient(top, #AD8545, #C9B28D);
-    background-image: -ms-linear-gradient(top, #AD8545, #C9B28D);
-    background-image: -o-linear-gradient(top, #AD8545, #C9B28D);
-    background-image: linear-gradient(to bottom, #AD8545, #C9B28D);
-    text-decoration: none;
-}
+
 
 .both {
     transition: all 0.2s;
@@ -165,7 +146,7 @@ input:not(:focus):valid ~ .floating-label {
     opacity: 1;
 }
 input:focus {
-    border-bottom: 4px solid #D6B16C !important;
+    border-bottom: 3px solid #D6B16C !important;
 }
 #name {
     font-size: 16px;
@@ -179,7 +160,7 @@ input:focus {
     left: 26%;
     top: 9%;
     transition: 0.2s ease all;
-    color: #9eaaaf;
+    color: #af904c;
     font-size: 16px;
 }
 .check {
@@ -188,13 +169,14 @@ input:focus {
 .check:checked + label,
 .check:checked + label:active {
     transition: all 0.2s linear;
-    background-color: #D6B16C;
-    color: white;
+    background-color: #d6b16c;
+    opacity: 0.7;
+    color: #604828;
 }
 p {
     padding-left: 10px;
     margin-top: 30px;
-    color: #9eaaaf;
+    color: #af904c;
     font-size: 16px;
 }
 .guests p {
@@ -203,10 +185,11 @@ p {
 label {
     padding: 10px;
     border-radius: 5px;
-    border: 3px #D6B16C solid;
+    border: 1px #D6B16C solid;
     font: black;
     cursor: pointer;
     display: inline-block;
+    color: #D6B16C
 }
 i {
     font-size: 12px;
@@ -223,23 +206,18 @@ select {
     outline: none;
     border: 2px #D6B16C solid;
     background-color: transparent;
+    color: #D6B16C;
 }
 button {
     padding: 10px 20px;
-    margin-right: 20px;
-    margin-top: 20px;
+    margin: 20px;
     border-radius: 5px;
     border: none;
     font-size: 16px;
+    width: 40%;
+    text-align: center;
 }
-#submit {
-    background-color: #D6B16C;
-    color: white;
-}
-#cancel {
-    background-color: #ddd;
-    color: black;
-}
+
 .attend {
     display: flex;
     flex-direction: column;
@@ -252,5 +230,41 @@ button {
 .controls {
     display: flex;
     flex-direction: row;
-    margin-left: 10px;
+    justify-content: center;
+}
+
+.gold-btn {
+    background: #D6B16C;
+    background-image: -webkit-linear-gradient(top, #D6B16C, #AD8545);
+    background-image: -moz-linear-gradient(top, #D6B16C, #AD8545);
+    background-image: -ms-linear-gradient(top, #D6B16C, #AD8545);
+    background-image: -o-linear-gradient(top, #D6B16C, #AD8545);
+    background-image: linear-gradient(to bottom, #D6B16C, #AD8545);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-family: Arial;
+    color: #684207;
+}
+
+.gold-btn:hover {
+    background: #AD8545;
+    background-image: -webkit-linear-gradient(top, #ba975d, #8e6c38);
+    background-image: -moz-linear-gradient(top, #ba975d, #8e6c38);
+    background-image: -ms-linear-gradient(top, #ba975d, #8e6c38);
+    background-image: -o-linear-gradient(top, #ba975d, #8e6c38);
+    background-image: linear-gradient(to bottom, #ba975d, #8e6c38);
+    text-decoration: none;
+}
+
+.error {
+    font-size: 14px;
+    display: block;
+    color: #d6b16c;
+    margin: 0 auto;
+    text-align: center;
+}
+
+i {
+    float: right;
 }

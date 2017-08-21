@@ -137,7 +137,7 @@
                         <img src="img/Asset 24@2x.png"/>
                         <img class="bangalore-left venue" src="img/Asset%2028@2x.png"/>
                         <img class="chennai-right venue" src="img/Asset%2031@2x.png"/>
-                        <input class="btn" value="RSVP"/>
+                        <input class="gold-btn btn" value="RSVP"/>
                     </div>
                 </aside>
             </div>
@@ -149,7 +149,7 @@
                           method="post" target="hidden_iframe"
                           id="rsvp">
                         <div>
-                            <input name="entry.14868917" type="text" id="name" required/>
+                            <input name="entry.14868917" type="text" id="name"/>
                             <span class="floating-label">Your Name</span>
                         </div>
                         <div class="attend">
@@ -157,36 +157,36 @@
                             <input type="checkbox" name="entry.1396445814" id="attend1" value="Reception at Bangalore"
                                    class="check"
                             />
-                            <label for="attend1">Reception at Bangalore<i><br>Nov 1, 2017</i></label>
+                            <label for="attend1">Reception at Bangalore<i>Nov 1, 2017</i></label>
                             <input type="checkbox" name="entry.1396445814" id="attend2" value="Muhurtham at Bangalore"
                                    class="check"
                             />
-                            <label for="attend2">Muhurtham at Bangalore<i><br>Nov 2, 2017</i></label>
+                            <label for="attend2">Muhurtham at Bangalore<i>Nov 2, 2017</i></label>
                             <input type="checkbox" name="entry.1396445814" id="attend3" value="Reception at Chennai"
                                    class="check"
                             />
-                            <label for="attend3">Reception at Chennai<i><br>Nov 4, 2017</i></label>
+                            <label for="attend3">Reception at Chennai<i>Nov 4, 2017</i></label>
                             <input type="checkbox" name="entry.1396445814" id="attend4" value="Regret" class="check"/>
-                            <label for="attend4">Regret<i><br>We will not be attending</i></label>
+                            <label for="attend4">Regret<i>We will not be attending</i></label>
                         </div>
                         <div class="guests">
                             <p>How many guests?</p>
-                            <select name="entry.336775142" required>
+                            <select id="count" name="entry.336775142">
                                 <option selected disabled>Choose</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
-                                <option value="5+">5+</option>
+                                <option value="5">5+</option>
                             </select>
                         </div>
                         <input name="entry.1599336520" type="hidden" id="ip" hidden/>
                         <input name="entry.1894150066" type="hidden" id="city" hidden/>
 
                         <div class="controls">
-                            <button onsubmit='onSubmit()' type="submit" value="Submit" id="submit">Submit
+                            <button class="gold-btn" value="Submit" id="submit">Submit
                             </button>
-                            <button value="Cancel" id="cancel">Cancel
+                            <button class="gold-btn" type="button" value="Cancel" id="cancel">Cancel
                             </button>
                         </div>
                     </form>
