@@ -5,6 +5,7 @@
 
 .header path {
     transform: scale(6.8);
+    -ms-transform: scale(6.8);
     margin: auto;
     fill: #d6b16c;
     stroke: #d6b16c;
