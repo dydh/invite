@@ -77,10 +77,12 @@ function onLoad() {
         $("#city").val(data.city);
     });
     
-    var g= document.querySelectorAll('path'),
-    transform= getComputedStyle(g).getPropertyValue('transform');
+    var g= document.querySelectorAll('.header path');
 
-    g.setAttribute('transform', transform);
+    for (var i = 0; i < g.length; i++) {
+	    var transform= getComputedStyle(g[i]).getPropertyValue('transform');
+        g[i].setAttribute('transform', transform);
+    }
 }
 
 $("form").submit(function (event) {
