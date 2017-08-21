@@ -1,0 +1,256 @@
+
+.header {
+    margin: auto;
+}
+
+.header path {
+    transform: scale(6.8);
+    margin: auto;
+    fill: #d6b16c;
+    stroke: #d6b16c;
+    fill-opacity: 0.6;
+    stroke-width: 0.7;
+    stroke-linecap: square;
+    stroke-linejoin: aquare;
+    animation: FillIn 5s ease-in;
+}
+
+@keyframes FillIn {
+    10% {
+        fill-opacity: 0;
+    }
+    100% {
+        fill-opacity: 0.6;
+    }
+}
+
+.image {
+    background: #881518;
+    background: linear-gradient(to right, #881518, #3d1110);
+    height: 0;
+}
+
+.image img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.fold-out {
+    transition-property: all;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+    height: 400px;
+}
+
+
+
+.venue {
+    max-width: 40%;
+    margin-bottom: 3%;
+}
+
+.bangalore-left {
+    float: left;
+    /*border-right: 1px solid #D6B16C;*/
+}
+
+
+.chennai-right {
+    float: right;
+}
+
+.venue {
+    padding: 2% 5%;
+}
+
+.btn {
+    background: #D6B16C;
+    background-image: -webkit-linear-gradient(top, #D6B16C, #AD8545);
+    background-image: -moz-linear-gradient(top, #D6B16C, #AD8545);
+    background-image: -ms-linear-gradient(top, #D6B16C, #AD8545);
+    background-image: -o-linear-gradient(top, #D6B16C, #AD8545);
+    background-image: linear-gradient(to bottom, #D6B16C, #AD8545);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-family: Arial;
+    color: #684207;
+    font-size: 20px;
+    padding: 10px 30px 10px 30px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    opacity: 0;
+    width: 50%;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+}
+
+
+.fade-in {
+    opacity: 1;
+    transition-property: all;
+    transition-duration: 1.5s;
+    transition-timing-function: ease-in-out;
+}
+.btn:hover {
+    background: #AD8545;
+    background-image: -webkit-linear-gradient(top, #AD8545, #C9B28D);
+    background-image: -moz-linear-gradient(top, #AD8545, #C9B28D);
+    background-image: -ms-linear-gradient(top, #AD8545, #C9B28D);
+    background-image: -o-linear-gradient(top, #AD8545, #C9B28D);
+    background-image: linear-gradient(to bottom, #AD8545, #C9B28D);
+    text-decoration: none;
+}
+
+.both {
+    transition: all 0.2s;
+    perspective: 900px;
+}
+.card, .rsvp-card, .both {
+    z-index: 10;
+    margin: auto auto;
+}
+
+.front, .back {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    min-height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    transition: all 1s;
+}
+.back {
+    height: 400px;
+    transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+}
+.flipped .back {
+    transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+}
+.flipped .front {
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+}
+
+form {
+    display: block;
+}
+#name {
+    border: none;
+    border-bottom: 2px solid #D6B16C;
+    outline: none;
+    background-color: transparent;
+    margin-left: 10px;
+    min-width: 95%;
+}
+input:focus ~ .floating-label,
+input:not(:focus):valid ~ .floating-label {
+    top: 4%;
+    left: 26%;
+    font-size: 10px;
+    opacity: 1;
+}
+input:focus {
+    border-bottom: 4px solid #D6B16C !important;
+}
+#name {
+    font-size: 16px;
+    width: 200px;
+    height: 35px;
+    padding-top: 10px;
+}
+.floating-label {
+    position: absolute;
+    pointer-events: none;
+    left: 26%;
+    top: 9%;
+    transition: 0.2s ease all;
+    color: #9eaaaf;
+    font-size: 16px;
+}
+.check {
+    display: none;
+}
+.check:checked + label,
+.check:checked + label:active {
+    transition: all 0.2s linear;
+    background-color: #D6B16C;
+    color: white;
+}
+p {
+    padding-left: 10px;
+    margin-top: 30px;
+    color: #9eaaaf;
+    font-size: 16px;
+}
+.guests p {
+    display: inline-block;
+}
+label {
+    padding: 10px;
+    border-radius: 5px;
+    border: 3px #D6B16C solid;
+    font: black;
+    cursor: pointer;
+    display: inline-block;
+}
+i {
+    font-size: 12px;
+}
+.guests {
+    display: none;
+}
+select {
+    margin-bottom: 10px;
+    margin-left: 10px;
+    padding: 20px;
+    width: 50%;
+    height: 30px;
+    outline: none;
+    border: 2px #D6B16C solid;
+    background-color: transparent;
+}
+button {
+    padding: 10px 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+}
+#submit {
+    background-color: #D6B16C;
+    color: white;
+}
+#cancel {
+    background-color: #ddd;
+    color: black;
+}
+.attend {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.attend label {
+    margin: 10px auto;
+    min-width: 90%;
+}
+.controls {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+}

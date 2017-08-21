@@ -1,0 +1,277 @@
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+audio,
+canvas,
+iframe,
+svg,
+video {
+    vertical-align: middle;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+/* ===== Initializr Styles ==================================================
+   ========================================================================== */
+
+body {
+    font: 16px/26px Helvetica, Helvetica Neue, Arial;
+}
+
+.wrapper {
+    width: 90%;
+    margin: 0 5%;
+}
+
+.main aside {
+    background: #881518;
+    background: linear-gradient(to right, #881518, #3d1110);
+}
+
+.title {
+    color: white;
+}
+
+
+.main {
+    padding: 10px 0;
+}
+
+.main aside {
+    color: white;
+    padding: 2%;
+    border-radius: 5px;
+}
+
+.ie7 .title {
+    padding-top: 20px;
+}
+
+
+@media only screen and (max-width: 414px) {
+    .venue {
+        max-width: 40%;
+    }
+    .venue {
+        padding: 2% 10%;
+    }
+    .btn {
+        transform: scale(0.7);
+    }
+    .fold-out {
+        max-height: 310px;
+    }
+}
+
+@media only screen and (min-width: 480px) {
+    .venue {
+        min-width: 35%;
+    }
+    .venue {
+        padding: 2% 10%;
+    }
+    .fold-out {
+        max-height: 460px;
+    }
+    .btn {
+        transform: scale(0.7);
+    }
+}
+
+@media only screen and (min-width: 768px) {
+
+
+    .main aside {
+        -webkit-box-shadow: 0 5px 10px #aaa;
+           -moz-box-shadow: 0 5px 10px #aaa;
+                box-shadow: 0 5px 10px #aaa;
+    }
+
+    .btn {
+        transform: scale(0.7);
+    }
+    .main aside{
+      margin: auto;
+      width: 50%;
+    }
+
+    .venue {
+        max-width: 30%;
+        padding: 2% 10%;
+    }
+    .fold-out {
+        max-height: 400px;
+    }
+}
+
+@media only screen and (min-width : 1024px) {
+
+    .wrapper {
+        width: 1026px; /* 1140px - 10% for margins */
+        margin: 0 auto;
+    }
+    .venue {
+        max-width: 40%;
+    }
+    .venue {
+        padding: 2% 10%;
+    }
+    .fold-out {
+        height: 400px;
+    }
+    .btn {
+        transform: scale(0.9);
+    }
+}
+
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+@media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+        max-height: 100% !important;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
