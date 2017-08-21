@@ -76,6 +76,11 @@ function onLoad() {
         $("#ip").val(data.ip);
         $("#city").val(data.city);
     });
+    
+    var g= document.querySelectorAll('path'),
+    transform= getComputedStyle(g).getPropertyValue('transform');
+
+    g.setAttribute('transform', transform);
 }
 
 $("form").submit(function (event) {
