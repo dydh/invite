@@ -109,13 +109,11 @@ body {
         max-height: 380px;
     }
 
+
     select {
         padding: 5px !important;
         width: 95% !important;
-    }
-
-    input:focus ~ .floating-label, input:not(:focus):valid ~ .floating-label {
-      left: 6% !important;
+        height: 40px !important;
     }
 
 }
@@ -133,12 +131,11 @@ body {
     .btn {
         transform: scale(0.7);
     }
+
     select {
         padding: 5px !important;
-        width: 95% !important;
-    }
-    input:focus ~ .floating-label, input:not(:focus):valid ~ .floating-label {
-      left: 6% !important;
+        width: 90% !important;
+        height: 40px !important;
     }
 }
 
@@ -167,6 +164,11 @@ body {
         max-height: 460px;
     }
 
+    select {
+        padding: 5px !important;
+        width: 90% !important;
+        height: 40px !important;
+    }
 }
 
 @media only screen and (min-width : 1024px) {
@@ -186,6 +188,12 @@ body {
     }
     .btn {
         transform: scale(0.9);
+    }
+
+    select {
+        padding: 5px !important;
+        width: 90% !important;
+        height: 40px !important;
     }
 }
 

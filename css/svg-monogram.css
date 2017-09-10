@@ -140,8 +140,6 @@ form {
 }
 input:focus ~ .floating-label,
 input:not(:focus):valid ~ .floating-label {
-    top: 4%;
-    left: 26%;
     font-size: 10px;
     opacity: 1;
 }
@@ -153,16 +151,21 @@ input:focus {
     width: 200px;
     height: 35px;
     padding-top: 10px;
+    color: #ae8e4b;
 }
-.floating-label {
-    position: absolute;
-    pointer-events: none;
-    left: 26%;
-    top: 9%;
-    transition: 0.2s ease all;
-    color: #af904c;
-    font-size: 16px;
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #ae8e4b;
 }
+::-moz-placeholder { /* Firefox 19+ */
+  color: #ae8e4b;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #ae8e4b;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #ae8e4b;
+}
+
 .check {
     display: none;
 }
