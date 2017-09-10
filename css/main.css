@@ -114,6 +114,10 @@ body {
         width: 95% !important;
     }
 
+    input:focus ~ .floating-label, input:not(:focus):valid ~ .floating-label {
+      left: 6% !important;
+    }
+
 }
 
 @media only screen and (min-width: 480px) {
@@ -132,6 +136,9 @@ body {
     select {
         padding: 5px !important;
         width: 95% !important;
+    }
+    input:focus ~ .floating-label, input:not(:focus):valid ~ .floating-label {
+      left: 6% !important;
     }
 }
 
@@ -162,6 +169,9 @@ body {
     select {
         padding: 5px !important;
         width: 95% !important;
+    }
+    input:focus ~ .floating-label, input:not(:focus):valid ~ .floating-label {
+      left: 6% !important;
     }
 }
 
