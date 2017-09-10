@@ -24,7 +24,7 @@ hr {
 }
 
 input {
-  font-size: 16px;
+  font-size: 16p
 }
 
 audio,
@@ -110,13 +110,10 @@ body {
     }
 
     select {
-      margin-bottom: 10px;
-      margin-left: 10px;
-      padding: 20px;
-      width: 30%;
-      height: 30px;
-      background-color: #881518;
+        padding: 5px !important;
+        width: 95% !important;
     }
+
 }
 
 @media only screen and (min-width: 480px) {
@@ -133,12 +130,8 @@ body {
         transform: scale(0.7);
     }
     select {
-      margin-bottom: 10px;
-      margin-left: 10px;
-      padding: 20px;
-      width: 30%;
-      height: 30px;
-      background-color: #881518;
+        padding: 5px !important;
+        width: 95% !important;
     }
 }
 
@@ -167,12 +160,8 @@ body {
         max-height: 460px;
     }
     select {
-      margin-bottom: 10px;
-      margin-left: 10px;
-      padding: 20px;
-      width: 30%;
-      height: 30px;
-      background-color: #881518;
+        padding: 5px !important;
+        width: 95% !important;
     }
 }
 
