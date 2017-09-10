@@ -166,10 +166,7 @@ body {
     .fold-out {
         max-height: 460px;
     }
-    select {
-        padding: 5px !important;
-        width: 95% !important;
-    }
+
 }
 
 @media only screen and (min-width : 1024px) {
