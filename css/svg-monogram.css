@@ -5,7 +5,6 @@
 
 .header path {
     transform: scale(6.8);
-    -ms-transform: scale(6.8);
     margin: auto;
     fill: #d6b16c;
     stroke: #d6b16c;
@@ -41,7 +40,7 @@
     transition-property: all;
     transition-duration: 1s;
     transition-timing-function: ease-in-out;
-    height: 400px;
+    height: 480px;
 }
 
 
@@ -258,6 +257,16 @@ button {
     text-decoration: none;
 }
 
+.gold-btn-no-fill {
+  background: transparent;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  font-family: Arial;
+  border: 1px solid #d6b16c;
+  color: #d6b16c;
+}
+
 .error {
     font-size: 14px;
     display: block;
@@ -270,6 +279,10 @@ i {
     float: right;
 }
 
-#count {
-    height: 30px;
+#countdown, #livestream {
+  color: #d6b16c;
+  text-align: center;
+  font-size: 12px;
+  margin: 0;
+  display: none;
 }

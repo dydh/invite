@@ -7,13 +7,32 @@ jQuery.extend(jQuery.easing,
     });
 
 
-function drawSVGPaths(_parentElement, _timeMin, _timeMax, _timeDelay) {
-var g= document.querySelectorAll('.header path');
+(function countdown() {
+  var countDownDate = new Date("Nov 1, 2017 19:00:01").getTime();
+  var x = setInterval(function() {
 
-    for (var i = 0; i < g.length; i++) {
-	    var transform= getComputedStyle(g[i]).getPropertyValue('transform');
-        g[i].setAttribute('transform', transform);
+    var now = new Date().getTime();
+
+    var distance = countDownDate - now;
+
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+
+    // If the count down is over, write some text
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "Event has started";
     }
+}, 1000);
+})();
+
+function drawSVGPaths(_parentElement, _timeMin, _timeMax, _timeDelay) {
+
 
     var paths = $(_parentElement).find('path');
 
@@ -50,6 +69,8 @@ startSVGAnimation($('svg'));
 setTimeout(function () {
     $(".image").addClass('fold-out');
     $(".btn").addClass('fade-in')
+    $("#countdown").show();
+    $("#livestream").css("display", "block");
 }, 2500);
 
 
@@ -77,7 +98,7 @@ $("#cancel").click(function () {
 });
 
 function onLoad() {
-    $.getJSON('//freegeoip.net/json/?callback=?', function (data) {
+    $.getJSON('https://freegeoip.net/json/?callback=?', function (data) {
         $("#ip").val(data.ip);
         $("#city").val(data.city);
     });
@@ -95,7 +116,7 @@ $("form").submit(function (event) {
 
     var count = $('#count option:selected').text();
 
-    if (name!=="" && attend && count !== "Choose" || name && regret) {
+    if (name!=="" && attend && count != "Choose" || name && regret) {
         alert("Thank you for your response!");
         $(".both").toggleClass('flipped');
         return;
@@ -111,4 +132,3 @@ $("form").submit(function (event) {
     })
 
 });
-
