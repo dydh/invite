@@ -132,6 +132,14 @@ body {
     .btn {
         transform: scale(0.7);
     }
+    select {
+      margin-bottom: 10px;
+      margin-left: 10px;
+      padding: 20px;
+      width: 30%;
+      height: 30px;
+      background-color: #881518;
+    }
 }
 
 @media only screen and (min-width: 768px) {
@@ -157,6 +165,14 @@ body {
     }
     .fold-out {
         max-height: 460px;
+    }
+    select {
+      margin-bottom: 10px;
+      margin-left: 10px;
+      padding: 20px;
+      width: 30%;
+      height: 30px;
+      background-color: #881518;
     }
 }
 
