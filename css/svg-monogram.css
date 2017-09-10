@@ -205,7 +205,7 @@ select {
     height: 30px;
     outline: none;
     border: 2px #D6B16C solid;
-    background-color: #4d1110;
+    background-color: transparent;
     color: #D6B16C;
 }
 button {

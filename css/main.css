@@ -108,6 +108,15 @@ body {
     .fold-out {
         max-height: 380px;
     }
+
+    select {
+      margin-bottom: 10px;
+      margin-left: 10px;
+      padding: 20px;
+      width: 30%;
+      height: 30px;
+      background-color: #881518;
+    }
 }
 
 @media only screen and (min-width: 480px) {
